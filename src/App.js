@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles/App.css";
+
+import { useApp } from "./useApp";
+import { FruitList } from "./components/fruitList/FruitList";
+import { Favorites } from "./components/favorites/Favorites";
 
 function App() {
+  const {
+    isLoading,
+    fruits,
+    favorites,
+    handleAddToFavorites,
+    handleRemoveFromFavorites,
+  } = useApp();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!!isLoading && (
+        <div className="loader">
+          <div className="loaderBar" />
+        </div>
+      )}
+      <FruitList list={fruits} handleOnClick={handleAddToFavorites} />
+      <Favorites list={favorites} handleOnClick={handleRemoveFromFavorites} />
     </div>
   );
 }

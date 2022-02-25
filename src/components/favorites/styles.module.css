@@ -1,0 +1,52 @@
+.favorites {
+  padding: 20px;
+  background-color: #d4e9f9;
+}
+
+.title {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.itemContainer {
+  width: 33.333%;
+  padding: 10px;
+  flex-grow: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 10%);
+}
+
+.buttonRemoveFromFavorites {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  background-color: blue;
+  border-radius: 3px;
+}
+
+.buttonRemoveFromFavorites::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 10px;
+  height: 2px;
+  top: 7px;
+  left: 50%;
+  margin-left: -5px;
+  background-color: #fff;
+}
